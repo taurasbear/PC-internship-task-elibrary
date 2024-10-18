@@ -20,7 +20,7 @@
 
             if (!string.IsNullOrWhiteSpace(title))
             {
-                bookQuery = bookQuery.Where(book => book.Title.Contains(title));
+                bookQuery = bookQuery.Where(book => book.Title.ToLower().Contains(title.ToLower()));
             }
 
             if (year.HasValue)
