@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { fetchData } from '../utils/fetchData';
 
-const BookTypeDropdown = ({onBookTypeChange }) => {
+const BookTypeDropdown = ({ onBookTypeChange }) => {
     const [bookTypes, setBookTypes] = useState([]);
     const [selectedBookType, setSelectedBookType] = useState([]);
 
     useEffect(() => {
         const fetchBookTypes = async () => {
-            await fetch('api/enums/booktypes')
-                .then(response => response.json())
-                .then(data => setBookTypes(data))
-                .catch(error => console.error("Error fetching book types:", error));
+            await fetchData('api/enums/booktypes', setBookTypes)
         }
 
         fetchBookTypes();

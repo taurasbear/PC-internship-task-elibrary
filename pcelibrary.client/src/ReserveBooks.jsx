@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import BookItem from './components/BookItem'
 import BookTypeDropdown from './components/BookTypeDropdown';
 import TextField from '@mui/material/TextField';
+import BookList from './components/BookList';
+import { fetchData } from './utils/fetchData';
 
-const BookList = () => {
+const ReserveBooks = () => {
 
     const [books, setBooks] = useState([]);
     const [filters, setFilters] = useState({
@@ -15,10 +17,7 @@ const BookList = () => {
     const populateBooks = async () => {
         const query = new URLSearchParams(filters).toString();
         const url = `api/books?${query}`;
-        fetch(url)
-            .then(response => response.json())
-            .then(data => setBooks(data))
-            .catch(error => console.error('Error fetching books:', error))
+        await fetchData(url, setBooks)
     }
 
     useEffect(() => {
@@ -37,7 +36,7 @@ const BookList = () => {
             <div>
                 <h1>List of books:</h1>
             </div>
-            {books.map(book => (<BookItem key={book.id} book={book}></BookItem>))}
+            <BookList books={books} />
             <div>
                 <h2>Select Book Filters</h2>
                 <TextField
@@ -48,6 +47,7 @@ const BookList = () => {
                 />
                 <TextField
                     label="Year"
+                    type="number"
                     value={filters.year}
                     onChange={(e) => handleFilterChange("year", e.target.value)}
                     fullWidth
@@ -58,4 +58,4 @@ const BookList = () => {
     );
 }
 
-export default BookList
+export default ReserveBooks
