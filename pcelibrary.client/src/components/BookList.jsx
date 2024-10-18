@@ -42,12 +42,6 @@ const BookList = ({ books }) => {
         handleClose();
     }
 
-    //const fetchBookTypes = (bookId) => {
-    //    const query = new URLSearchParams(bookId).toString();
-    //    const url = `api/booktypes?${query}`;
-
-    //}
-
     return (
         <div>
             <ul>

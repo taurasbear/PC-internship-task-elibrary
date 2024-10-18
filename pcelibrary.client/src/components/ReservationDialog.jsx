@@ -16,7 +16,7 @@ const ReservationDialog = ({ open, onClose, selectedBook, bookTypes, reservation
                             <MenuItem key={bookType.bookType} value={bookType.bookType}>
                                 {bookType.bookType}
                             </MenuItem>
-                        ))}s
+                        ))}
                     </Select>
                 </FormControl>
                 <FormControl fullWidth margin="normal">
