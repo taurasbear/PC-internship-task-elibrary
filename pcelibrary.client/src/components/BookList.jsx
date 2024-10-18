@@ -16,10 +16,7 @@ const BookList = ({ books }) => {
 
     const handleBookClick = async (book) => {
         setSelectBook(book);
-        console.log('book', book);
-        console.log('bookid', book.id);
         await fetchData(`api/booktypes?bookId=${book.id}`, setBookTypes);
-        console.log('book types:', bookTypes);
         setOpenDialog(true);
     };
 
