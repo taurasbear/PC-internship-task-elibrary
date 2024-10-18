@@ -1,0 +1,6 @@
+@PCElibrary.Server_HostAddress = http://localhost:5102
+
+GET {{PCElibrary.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
