@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using PCElibrary.Application.Interfaces;
 using PCElibrary.Infrastructure.DbContext;
 using PCElibrary.Infrastructure.Repositories;
 using PCElibrary.Server.Repositories.Interfaces;
@@ -13,6 +14,7 @@ namespace PCElibrary.Infrastructure
             services.AddDbContext<LibraryContext>(options => options.UseInMemoryDatabase("LibraryDb"));
             //services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBookTypeRepository, BookTypeRepository>();
         }
     }
 }

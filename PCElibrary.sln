@@ -9,11 +9,11 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "pcelibrary.client", "pcelib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCElibrary.Tests", "PCElibrary.Tests\PCElibrary.Tests.csproj", "{B81AC955-8005-45ED-B824-402C72614B07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCElibrary.Domain", "PCElibrary.Domain\PCElibrary.Domain.csproj", "{22C31D35-9C6A-438D-BC82-1C9638DEB344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCElibrary.Domain", "PCElibrary.Domain\PCElibrary.Domain.csproj", "{22C31D35-9C6A-438D-BC82-1C9638DEB344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCElibrary.Application", "PCElibrary.Application\PCElibrary.Application.csproj", "{931D8A56-A7B7-40A5-BE5B-7ACD5F53CF8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCElibrary.Application", "PCElibrary.Application\PCElibrary.Application.csproj", "{931D8A56-A7B7-40A5-BE5B-7ACD5F53CF8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCElibrary.Infrastructure", "PCElibrary.Infrastructure\PCElibrary.Infrastructure.csproj", "{E77757B6-5228-44E1-9A14-53362C0B483B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PCElibrary.Infrastructure", "PCElibrary.Infrastructure\PCElibrary.Infrastructure.csproj", "{E77757B6-5228-44E1-9A14-53362C0B483B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

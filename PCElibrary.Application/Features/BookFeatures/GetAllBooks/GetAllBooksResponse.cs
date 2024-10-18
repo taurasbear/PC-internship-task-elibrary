@@ -9,6 +9,5 @@
         public int Year { get; set; }
 
         public string ImagePath { get; set; } = string.Empty;
-
     }
 }

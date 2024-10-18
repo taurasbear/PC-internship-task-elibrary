@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { useState } from 'react';
 import BookItem from './BookItem';
+import ReservationDialog from './ReservationDialog';
+import { fetchData } from '../utils/fetchData';
 
 const BookList = ({ books }) => {
+
     const [selectedBook, setSelectBook] = useState(null);
+    const [bookTypes, setBookTypes] = useState([]);
     const [openDialog, setOpenDialog] = useState(false);
     const [reservationDetails, setReservationDetails] = useState({
         type: '',
@@ -11,8 +14,12 @@ const BookList = ({ books }) => {
         days: ''
     });
 
-    const handleBookClick = (book) => {
+    const handleBookClick = async (book) => {
         setSelectBook(book);
+        console.log('book', book);
+        console.log('bookid', book.id);
+        await fetchData(`api/booktypes?bookId=${book.id}`, setBookTypes);
+        console.log('book types:', bookTypes);
         setOpenDialog(true);
     };
 
@@ -35,52 +42,27 @@ const BookList = ({ books }) => {
         handleClose();
     }
 
+    //const fetchBookTypes = (bookId) => {
+    //    const query = new URLSearchParams(bookId).toString();
+    //    const url = `api/booktypes?${query}`;
+
+    //}
+
     return (
         <div>
             <ul>
                 {books.map(book => (<BookItem key={book.id} book={book} onBookClick={handleBookClick} />))}
             </ul>
 
-            <Dialog open={openDialog} onClose={handleClose}>
-                <DialogTitle>Reserve {selectedBook?.name}</DialogTitle>
-                <DialogContent>
-                    <FormControl fullWidth margin="normal">
-                        <InputLabel>Type</InputLabel>
-                        <Select
-                            name="type"
-                            value={reservationDetails.type}
-                            onChange={handleChange}
-                        >
-                            <MenuItem value="Physical">Physical book</MenuItem>
-                            <MenuItem value="Audio">Audiobook</MenuItem>
-                        </Select>
-                    </FormControl>
-                    <FormControl fullWidth margin="normal">
-                        <InputLabel>Quick Pick Up</InputLabel>
-                        <Select
-                            name="quickPickUp"
-                            value={reservationDetails.quickPickUp}
-                            onChange={handleChange}
-                        >
-                            <MenuItem value={true}>Yes</MenuItem>
-                            <MenuItem value={false}>No</MenuItem>
-                        </Select>
-                    </FormControl>
-                    <TextField
-                        name="days"
-                        label="For how many days"
-                        type="number"
-                        fullWidth
-                        margin="normal"
-                        value={reservationDetails.days}
-                        onChange={handleChange}
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleSubmit} color="primary">Reserve</Button>
-                </DialogActions>
-            </Dialog>
+            <ReservationDialog
+                open={openDialog}
+                onClose={handleClose}
+                selectedBook={selectedBook}
+                bookTypes={bookTypes}
+                reservationDetails={reservationDetails}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+            />
         </div>
     );
 };

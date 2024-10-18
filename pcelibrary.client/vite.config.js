@@ -55,6 +55,10 @@ export default defineConfig({
                 target,
                 secure: false
             },
+            '^/api/booktypes': {
+                target,
+                secure: false
+            },
             '^/images': {
                 target,
                 secure: false

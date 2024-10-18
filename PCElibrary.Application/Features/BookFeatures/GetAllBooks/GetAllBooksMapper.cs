@@ -7,7 +7,7 @@
     {
         public GetAllBooksMapper()
         {
-            CreateMap<Book, GetAllBooksResponse>();
+            this.CreateMap<Book, GetAllBooksResponse>();
         }
     }
 }

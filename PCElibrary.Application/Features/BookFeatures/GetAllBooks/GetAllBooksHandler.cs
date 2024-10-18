@@ -1,14 +1,9 @@
-﻿using AutoMapper;
-using MediatR;
-using PCElibrary.Server.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PCElibrary.Application.Features.BookFeatures.GetAllBooks
+﻿namespace PCElibrary.Application.Features.BookFeatures.GetAllBooks
 {
+    using AutoMapper;
+    using MediatR;
+    using PCElibrary.Server.Repositories.Interfaces;
+
     public sealed class GetAllBooksHandler : IRequestHandler<GetAllBooksRequest, IList<GetAllBooksResponse>>
     {
         private readonly IBookRepository bookRepository;
