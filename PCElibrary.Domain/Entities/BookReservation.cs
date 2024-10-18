@@ -1,4 +1,4 @@
-﻿namespace PCElibrary.Server.Repositories.Entities
+﻿namespace PCElibrary.Domain.Entities
 {
     public class BookReservation
     {

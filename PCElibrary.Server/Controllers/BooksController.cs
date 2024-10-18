@@ -1,10 +1,8 @@
-﻿using AutoMapper;
+﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using PCElibrary.Server.Controllers.DTOs;
-using PCElibrary.Server.Repositories.Entities;
-using PCElibrary.Server.Services.Interfaces;
+using PCElibrary.Application.Features.BookFeatures.GetAllBooks;
+using PCElibrary.Domain.Enums;
 
 namespace PCElibrary.Server.Controllers
 {
@@ -12,21 +10,22 @@ namespace PCElibrary.Server.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly IBookService bookService;
-        private readonly IMapper mapper;
+        private readonly IMediator mediator;
 
-        public BooksController(IBookService bookService, IMapper mapper)
+        public BooksController(IMediator mediator)
         {
-            this.bookService = bookService;
-            this.mapper = mapper;
+            this.mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BookDTO>>> GetBooks()
+        public async Task<ActionResult<IList<GetAllBooksResponse>>> GetBooks(
+            [FromQuery] string? title,
+            [FromQuery] int? year,
+            [FromQuery] BookFormat? type,
+            CancellationToken cancellationToken)
         {
-            IEnumerable<BookDTO> books = await this.bookService.GetAllBooksAsync();
-
-            return this.Ok(books);
+            var response = await this.mediator.Send(new GetAllBooksRequest(title, year, type), cancellationToken);
+            return this.Ok(response);
         }
     }
 }

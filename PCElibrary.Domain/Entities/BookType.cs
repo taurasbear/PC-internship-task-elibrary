@@ -1,7 +1,7 @@
-﻿namespace PCElibrary.Server.Repositories.Entities
+﻿namespace PCElibrary.Domain.Entities
 {
     using System.Collections.ObjectModel;
-    using PCElibrary.Server.Enums;
+    using PCElibrary.Domain.Enums;
 
     public class BookType
     {

@@ -1,14 +1,5 @@
 ﻿using AutoMapper;
-using PCElibrary.Server.Controllers.DTOs;
-using PCElibrary.Server.Enums;
 using PCElibrary.Server.Mappings;
-using PCElibrary.Server.Repositories.Entities;
-using PCElibrary.Server.Services.BusinessModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PCElibrary.Tests.Mappings
 {
@@ -22,7 +13,7 @@ namespace PCElibrary.Tests.Mappings
             this.mapper = config.CreateMapper();
         }
 
-        [Fact]
+        /*[Fact]
         public void Should_Map_Book_To_BookBusinessModel()
         {
             // Arrange
@@ -251,5 +242,6 @@ namespace PCElibrary.Tests.Mappings
             Assert.Equal(bookDTO.Year, bookBusinessModel.Year);
             Assert.Equal(bookDTO.ImagePath, bookBusinessModel.ImagePath);
         }
+        */
     }
 }

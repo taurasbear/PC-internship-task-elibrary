@@ -1,4 +1,4 @@
-﻿namespace PCElibrary.Server.Enums
+﻿namespace PCElibrary.Domain.Enums
 {
     public enum BookFormat
     {

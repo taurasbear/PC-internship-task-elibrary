@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PCElibrary.Server.Repositories.Entities;
-
-namespace PCElibrary.Server.DbContext
+﻿namespace PCElibrary.Infrastructure.DbContext
 {
+    using Microsoft.EntityFrameworkCore;
+    using PCElibrary.Domain.Entities;
+
     public static class ModelBuilderExtensions
     {
         public static void Seed(this ModelBuilder modelBuilder)

@@ -1,7 +1,7 @@
-﻿namespace PCElibrary.Server.DbContext
+﻿namespace PCElibrary.Infrastructure.DbContext
 {
     using Microsoft.EntityFrameworkCore;
-    using PCElibrary.Server.Repositories.Entities;
+    using PCElibrary.Domain.Entities;
 
     public class LibraryContext : DbContext
     {

@@ -32,9 +32,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PCElibrary.Application\PCElibrary.Application.csproj" />
     <ProjectReference Include="..\pcelibrary.client\pcelibrary.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\PCElibrary.Infrastructure\PCElibrary.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

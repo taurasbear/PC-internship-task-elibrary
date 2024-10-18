@@ -1,6 +1,6 @@
-﻿namespace PCElibrary.Server.Controllers.DTOs
+﻿namespace PCElibrary.Application.Features.BookFeatures.GetAllBooks
 {
-    public class BookDTO
+    public sealed record GetAllBooksResponse
     {
         public long Id { get; set; }
 
@@ -9,5 +9,6 @@
         public int Year { get; set; }
 
         public string ImagePath { get; set; } = string.Empty;
+
     }
 }
