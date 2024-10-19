@@ -9,11 +9,8 @@ namespace PCElibrary.Server.Controllers
     [ApiController]
     public class EnumsController : ControllerBase
     {
-        private readonly IMediator mediator;
-
-        public EnumsController(IMediator mediator)
+        public EnumsController()
         {
-            this.mediator = mediator;
         }
 
         [HttpGet("booktypes")]
