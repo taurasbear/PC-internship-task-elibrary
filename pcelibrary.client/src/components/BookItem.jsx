@@ -1,4 +1,6 @@
-import '../styles/BookItem.css'
+import React from 'react';
+import PropTypes from 'prop-types';
+import '../styles/BookItem.css';
 
 const BookItem = ({ book, onBookClick }) => {
 
@@ -11,6 +13,16 @@ const BookItem = ({ book, onBookClick }) => {
             </li>
         </div>
     );
+};
+
+BookItem.propTypes = {
+    book: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        year: PropTypes.number.isRequired,
+        imagePath: PropTypes.string.isRequired
+    }).isRequired,
+    onBookClick: PropTypes.func.isRequired
 }
 
-export default BookItem
+export default BookItem;
