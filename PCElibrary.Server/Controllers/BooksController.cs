@@ -1,11 +1,10 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using PCElibrary.Application.Features.BookFeatures.GetAllBooks;
-using PCElibrary.Domain.Enums;
-
-namespace PCElibrary.Server.Controllers
+﻿namespace PCElibrary.Server.Controllers
 {
+    using MediatR;
+    using Microsoft.AspNetCore.Mvc;
+    using PCElibrary.Application.Features.BookFeatures.GetAllBooks;
+    using PCElibrary.Domain.Enums;
+
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
