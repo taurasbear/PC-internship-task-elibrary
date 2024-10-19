@@ -25,6 +25,12 @@
                 {
                     throw new BadRequestException("Chosen reservation doesn't exist.");
                 }
+                if (reservation.BookReservations
+                    .Any(bReservation => bReservation.ReservationId == bookReservation.ReservationId
+                    && bReservation.BookTypeId == bookReservation.BookTypeId))
+                {
+                    throw new BadRequestException("Book reservation already exists.");
+                }
 
                 reservation.BookReservations.Add(bookReservation);
                 reservation.UpdateTotalPrice();
