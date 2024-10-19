@@ -2,23 +2,23 @@
 {
     using AutoMapper;
     using MediatR;
-    using PCElibrary.Server.Repositories.Interfaces;
+    using PCElibrary.Application.Interfaces;
 
     public sealed class GetAllBooksHandler : IRequestHandler<GetAllBooksRequest, IList<GetAllBooksResponse>>
     {
-        private readonly IBookRepository bookRepository;
+        private readonly IUnitOfWork unitOfWork;
 
         private readonly IMapper mapper;
 
-        public GetAllBooksHandler(IBookRepository bookRepository, IMapper mapper)
+        public GetAllBooksHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            this.bookRepository = bookRepository;
+            this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
 
         public async Task<IList<GetAllBooksResponse>> Handle(GetAllBooksRequest request, CancellationToken cancellationToken)
         {
-            var books = await this.bookRepository.GetAllBooksAsync(request.title, request.year, request.type);
+            var books = await this.unitOfWork.BookRepository.GetAllBooksAsync(request.title, request.year, request.type);
             return this.mapper.Map<IList<GetAllBooksResponse>>(books);
         }
     }
