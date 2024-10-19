@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import BookItem from './BookItem';
 import ReservationDialog from './ReservationDialog';
 import { fetchData, postData} from '../utils/fetchData';
@@ -8,8 +8,9 @@ const BookList = ({ books }) => {
     const defaultReservationDetails = {
         bookTypeId: '',
         quickPickUp: false,
-        days: ''
+        days: '',
     };
+    const [reservationId, setReservationId] = useState(sessionStorage.getItem('reservationId') || null);
 
     const [selectedBook, setSelectBook] = useState(null);
     const [bookTypes, setBookTypes] = useState([]);
@@ -37,12 +38,20 @@ const BookList = ({ books }) => {
     };
 
     const handleSubmit = async () => {
-        const data = await postData('api/bookreservations', reservationDetails);
+        const data = await postData('api/bookreservations', {...reservationDetails, reservationId});
         console.log('Received data:', data);
-        console.log('Reservation Details:', reservationDetails);
+        console.log('data.ReservationId:', data.reservationId);
+        setReservationId(data.reservationId);
+        sessionStorage.setItem('reservationId', data.reservationId);
         handleClose();
-        setReservationDetails(defaultReservationDetails);
     }
+
+    // useEffect(() =>{
+    //     console.log('In Use Effect, Reservation Details (after reservationId set):', reservationDetails);
+    //     if(reservationDetails.reservationId){
+    //         localStorage.setItem('reservationId', reservationDetails.reservationId);
+    //     }
+    // }, [reservationDetails.reservationId]);
 
     return (
         <div>
