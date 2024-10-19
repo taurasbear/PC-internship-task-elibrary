@@ -76,7 +76,7 @@ namespace PCElibrary.Infrastructure.Data
             GC.SuppressFinalize(this);
         }
 
-        public async Task Save(CancellationToken cancellationToken)
+        public async Task SaveAsync(CancellationToken cancellationToken)
         {
             await this.libraryContext.SaveChangesAsync(cancellationToken);
         }

@@ -3,5 +3,7 @@
     public sealed record AddBookReservationResponse
     {
         public long ReservationId { get; set; }
+
+        public long BookReservationId { get; set; }
     }
 }

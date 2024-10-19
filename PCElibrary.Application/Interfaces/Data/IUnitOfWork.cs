@@ -12,6 +12,6 @@ namespace PCElibrary.Application.Interfaces.Data
 
         IReservationRepository ReservationRepository { get; }
 
-        Task Save(CancellationToken cancellationToken);
+        Task SaveAsync(CancellationToken cancellationToken);
     }
 }

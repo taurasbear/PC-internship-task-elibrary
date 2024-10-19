@@ -8,8 +8,11 @@
 
         public decimal TotalPrice { get; set; }
 
-        public decimal DiscountedPrice { get; set; }
-
         public ICollection<BookReservation> BookReservations { get; set; } = new Collection<BookReservation>();
+
+        public void UpdateTotalPrice()
+        {
+            TotalPrice = BookReservations.Sum(bookReservation => bookReservation.Price);
+        }
     }
 }

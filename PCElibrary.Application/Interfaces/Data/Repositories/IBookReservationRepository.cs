@@ -9,6 +9,6 @@ namespace PCElibrary.Application.Interfaces.Data.Repositories
         /// </summary>
         /// <param name="bookReservation">The book reservation to be added.</param>
         /// <returns>Reservation Id.</returns>
-        Task<long> AddBookReservationAsync(BookReservation bookReservation);
+        Task<long> AddBookReservationAsync(BookReservation bookReservation, CancellationToken cancellationToken);
     }
 }

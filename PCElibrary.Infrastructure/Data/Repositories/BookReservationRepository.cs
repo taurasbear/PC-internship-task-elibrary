@@ -10,9 +10,9 @@
         {
         }
 
-        public async Task<long> AddBookReservationAsync(BookReservation bookReservation)
+        public async Task<long> AddBookReservationAsync(BookReservation bookReservation, CancellationToken cancellationToken)
         {
-            var addedBookReservation = await this.libraryContext.BookReservations.AddAsync(bookReservation);
+            var addedBookReservation = await this.libraryContext.BookReservations.AddAsync(bookReservation, cancellationToken);
             return addedBookReservation.Entity.ReservationId;
         }
     }
