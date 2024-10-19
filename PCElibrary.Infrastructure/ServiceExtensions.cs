@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PCElibrary.Application.Interfaces;
-using PCElibrary.Infrastructure.DbContext;
-using PCElibrary.Infrastructure.Repositories;
+using PCElibrary.Infrastructure.Data.DbContext;
+using PCElibrary.Infrastructure.Data.Repositories;
 using PCElibrary.Server.Repositories.Interfaces;
 
 namespace PCElibrary.Infrastructure

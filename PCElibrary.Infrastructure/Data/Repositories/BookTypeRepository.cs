@@ -1,9 +1,9 @@
-﻿namespace PCElibrary.Infrastructure.Repositories
+﻿namespace PCElibrary.Infrastructure.Data.Repositories
 {
     using Microsoft.EntityFrameworkCore;
     using PCElibrary.Application.Interfaces;
     using PCElibrary.Domain.Entities;
-    using PCElibrary.Infrastructure.DbContext;
+    using PCElibrary.Infrastructure.Data.DbContext;
 
     public class BookTypeRepository : BaseRepository, IBookTypeRepository
     {
@@ -13,7 +13,7 @@
 
         public async Task<IList<BookType>> GetBookTypesByBookId(long bookId)
         {
-            return await this.libraryContext.BookTypes
+            return await libraryContext.BookTypes
                 .Where(bookType => bookType.BookId == bookId)
                 .ToListAsync();
         }

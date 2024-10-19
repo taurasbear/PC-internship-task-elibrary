@@ -1,9 +1,9 @@
-﻿namespace PCElibrary.Infrastructure.Repositories
+﻿namespace PCElibrary.Infrastructure.Data.Repositories
 {
     using Microsoft.EntityFrameworkCore;
     using PCElibrary.Domain.Entities;
     using PCElibrary.Domain.Enums;
-    using PCElibrary.Infrastructure.DbContext;
+    using PCElibrary.Infrastructure.Data.DbContext;
     using PCElibrary.Server.Repositories.Interfaces;
 
     public class BookRepository : BaseRepository, IBookRepository
@@ -14,7 +14,7 @@
 
         public async Task<IList<Book>> GetAllBooksAsync(string title, int? year, BookFormat? type)
         {
-            var bookQuery = this.libraryContext.Books
+            var bookQuery = libraryContext.Books
                 .Include(book => book.BookTypes)
                 .AsQueryable();
 

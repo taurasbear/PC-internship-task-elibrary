@@ -1,4 +1,4 @@
-﻿namespace PCElibrary.Infrastructure.DbContext
+﻿namespace PCElibrary.Infrastructure.Data.DbContext
 {
     using Microsoft.EntityFrameworkCore;
     using PCElibrary.Domain.Entities;

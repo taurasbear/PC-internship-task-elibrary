@@ -1,6 +1,6 @@
 using PCElibrary.Application;
 using PCElibrary.Infrastructure;
-using PCElibrary.Infrastructure.DbContext;
+using PCElibrary.Infrastructure.Data.DbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
