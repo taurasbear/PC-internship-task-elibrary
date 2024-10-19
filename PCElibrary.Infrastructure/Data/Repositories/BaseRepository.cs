@@ -1,12 +1,7 @@
-﻿using PCElibrary.Infrastructure.Data.DbContext;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PCElibrary.Infrastructure.Data.Repositories
+﻿namespace PCElibrary.Infrastructure.Data.Repositories
 {
+    using PCElibrary.Infrastructure.Data.DbContext;
+
     public class BaseRepository
     {
         protected readonly LibraryContext libraryContext;
