@@ -1,3 +1,4 @@
+import React from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 const ReservationDialog = ({ open, onClose, selectedBook, bookTypes, reservationDetails, handleChange, handleSubmit }) => {
@@ -8,12 +9,12 @@ const ReservationDialog = ({ open, onClose, selectedBook, bookTypes, reservation
                 <FormControl fullWidth margin="normal">
                     <InputLabel>Type</InputLabel>
                     <Select
-                        name="type"
-                        value={reservationDetails.type}
+                        name="bookTypeId"
+                        value={reservationDetails.bookTypeId}
                         onChange={handleChange}
                     >
                         {bookTypes.map(bookType => (
-                            <MenuItem key={bookType.bookType} value={bookType.bookType}>
+                            <MenuItem key={bookType.id} value={bookType.id}>
                                 {bookType.bookType}
                             </MenuItem>
                         ))}

@@ -1,18 +1,20 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import BookItem from './BookItem';
 import ReservationDialog from './ReservationDialog';
 import { fetchData } from '../utils/fetchData';
 
 const BookList = ({ books }) => {
 
+    const defaultReservationDetails = {
+        bookTypeId: '',
+        quickPickUp: false,
+        days: ''
+    };
+
     const [selectedBook, setSelectBook] = useState(null);
     const [bookTypes, setBookTypes] = useState([]);
     const [openDialog, setOpenDialog] = useState(false);
-    const [reservationDetails, setReservationDetails] = useState({
-        type: '',
-        quickPickUp: false,
-        days: ''
-    });
+    const [reservationDetails, setReservationDetails] = useState(defaultReservationDetails);
 
     const handleBookClick = async (book) => {
         setSelectBook(book);
@@ -23,6 +25,7 @@ const BookList = ({ books }) => {
     const handleClose = () => {
         setOpenDialog(false)
         setSelectBook(null);
+        setReservationDetails(defaultReservationDetails);
     };
 
     const handleChange = (e) => {
@@ -37,6 +40,7 @@ const BookList = ({ books }) => {
         // post request to backend
         console.log('Reservation Details:', reservationDetails);
         handleClose();
+        setReservationDetails(defaultReservationDetails);
     }
 
     return (

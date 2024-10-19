@@ -2,6 +2,8 @@
 {
     public sealed record GetBookTypesByBookIdResponse
     {
+        public long Id { get; set; }
+
         public string BookType { get; set; } = string.Empty;
     }
 }
