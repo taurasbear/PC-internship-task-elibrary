@@ -1,10 +1,8 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using PCElibrary.Domain.Enums;
-
-namespace PCElibrary.Server.Controllers
+﻿namespace PCElibrary.Server.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using PCElibrary.Domain.Enums;
+
     [Route("api/[controller]")]
     [ApiController]
     public class EnumsController : ControllerBase
