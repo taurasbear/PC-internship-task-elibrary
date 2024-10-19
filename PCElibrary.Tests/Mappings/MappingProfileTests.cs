@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using PCElibrary.Server.Mappings;
 
 namespace PCElibrary.Tests.Mappings
 {
@@ -9,8 +8,8 @@ namespace PCElibrary.Tests.Mappings
 
         public MappingProfileTests()
         {
-            var config = new MapperConfiguration(cfg => cfg.AddProfile<MappingProfile>());
-            this.mapper = config.CreateMapper();
+            //var config = new MapperConfiguration(cfg => cfg.AddProfile<MappingProfile>());
+            //this.mapper = config.CreateMapper();
         }
 
         /*[Fact]

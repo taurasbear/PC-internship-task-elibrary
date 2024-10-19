@@ -4,6 +4,6 @@
     {
         public long ReservationId { get; set; }
 
-        public long BookReservationId { get; set; }
+        public long BookTypeId { get; set; }
     }
 }

@@ -37,7 +37,8 @@ const BookList = ({ books }) => {
     };
 
     const handleSubmit = async () => {
-        await postData('api/bookreservations', reservationDetails);
+        const data = await postData('api/bookreservations', reservationDetails);
+        console.log('Received data:', data);
         console.log('Reservation Details:', reservationDetails);
         handleClose();
         setReservationDetails(defaultReservationDetails);

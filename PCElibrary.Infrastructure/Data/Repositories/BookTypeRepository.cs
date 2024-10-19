@@ -11,6 +11,11 @@
         {
         }
 
+        public async Task<BookType> GetBookTypeByIdAsync(long bookTypeId, CancellationToken cancellationToken)
+        {
+            return await libraryContext.BookTypes.FindAsync(bookTypeId, cancellationToken);
+        }
+
         public async Task<IList<BookType>> GetBookTypesByBookId(long bookId, CancellationToken cancellationToken)
         {
             return await libraryContext.BookTypes

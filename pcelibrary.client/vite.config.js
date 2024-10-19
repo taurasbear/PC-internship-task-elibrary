@@ -59,6 +59,10 @@ export default defineConfig({
                 target,
                 secure: false
             },
+            '^/api/bookreservations':{
+                target,
+                secure: false
+            },
             '^/images': {
                 target,
                 secure: false

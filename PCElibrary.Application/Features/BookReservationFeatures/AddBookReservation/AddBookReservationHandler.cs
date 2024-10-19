@@ -15,6 +15,7 @@
         public override async Task<AddBookReservationResponse> Handle(AddBookReservationRequest request, CancellationToken cancellationToken)
         {
             var bookReservation = mapper.Map<BookReservation>(request);
+            bookReservation.BookType = await unitOfWork.BookTypeRepository.GetBookTypeByIdAsync(request.bookTypeId, cancellationToken);
             bookReservation.Price = ReservationCalculator.CalculatePrice(bookReservation);
 
             if (request.reservationId.HasValue)
