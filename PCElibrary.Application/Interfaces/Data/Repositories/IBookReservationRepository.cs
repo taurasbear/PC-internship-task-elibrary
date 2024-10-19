@@ -8,7 +8,7 @@ namespace PCElibrary.Application.Interfaces.Data.Repositories
         /// Adds a new book reservation to the repository asynchronously.
         /// </summary>
         /// <param name="bookReservation">The book reservation to be added.</param>
-        /// <returns>A task that represents the asynchronous operation.</returns>
-        Task AddBookReservationAsync(BookReservation bookReservation);
+        /// <returns>Reservation Id.</returns>
+        Task<long> AddBookReservationAsync(BookReservation bookReservation);
     }
 }

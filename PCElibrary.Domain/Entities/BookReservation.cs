@@ -13,5 +13,7 @@
         public bool QuickPickUp { get; set; }
 
         public int Days { get; set; }
+
+        public decimal Price { get; set; }
     }
 }

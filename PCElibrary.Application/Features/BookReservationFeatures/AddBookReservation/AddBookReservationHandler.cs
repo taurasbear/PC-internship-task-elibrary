@@ -2,6 +2,7 @@
 {
     using AutoMapper;
     using PCElibrary.Application.Interfaces.Data;
+    using PCElibrary.Domain.Entities;
 
     public sealed class AddBookReservationHandler : BaseHandler<AddBookReservationRequest, AddBookReservationResponse>
     {
@@ -11,7 +12,11 @@
 
         public override Task<AddBookReservationResponse> Handle(AddBookReservationRequest request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var bookReservation = mapper.Map<BookReservation>(request);
+            bookReservation.Reservation = new Reservation()
+            {
+
+            };
         }
     }
 }
