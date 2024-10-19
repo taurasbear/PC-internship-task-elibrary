@@ -11,11 +11,11 @@
         {
         }
 
-        public async Task<IList<BookType>> GetBookTypesByBookId(long bookId)
+        public async Task<IList<BookType>> GetBookTypesByBookId(long bookId, CancellationToken cancellationToken)
         {
             return await libraryContext.BookTypes
                 .Where(bookType => bookType.BookId == bookId)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
         }
     }
 }

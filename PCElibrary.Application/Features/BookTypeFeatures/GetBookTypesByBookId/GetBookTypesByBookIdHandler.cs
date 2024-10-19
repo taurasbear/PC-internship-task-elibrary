@@ -11,7 +11,7 @@
 
         public override async Task<IList<GetBookTypesByBookIdResponse>> Handle(GetBookTypesByBookIdRequest request, CancellationToken cancellationToken)
         {
-            var bookTypes = await this.unitOfWork.BookTypeRepository.GetBookTypesByBookId(request.bookId);
+            var bookTypes = await this.unitOfWork.BookTypeRepository.GetBookTypesByBookId(request.bookId, cancellationToken);
             return this.mapper.Map<IList<GetBookTypesByBookIdResponse>>(bookTypes);
         }
     }

@@ -12,7 +12,7 @@
         {
         }
 
-        public async Task<IList<Book>> GetAllBooksAsync(string title, int? year, BookFormat? type)
+        public async Task<IList<Book>> GetAllBooksAsync(string title, int? year, BookFormat? type, CancellationToken cancellationToken)
         {
             var bookQuery = libraryContext.Books
                 .Include(book => book.BookTypes)
@@ -33,7 +33,7 @@
                 bookQuery = bookQuery.Where(book => book.BookTypes.Any(bookType => bookType.Format == type.Value));
             }
 
-            return await bookQuery.ToListAsync();
+            return await bookQuery.ToListAsync(cancellationToken);
         }
     }
 }
