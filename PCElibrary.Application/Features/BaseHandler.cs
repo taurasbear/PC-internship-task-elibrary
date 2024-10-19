@@ -2,7 +2,7 @@
 {
     using AutoMapper;
     using MediatR;
-    using PCElibrary.Application.Interfaces;
+    using PCElibrary.Application.Interfaces.Data;
 
     public abstract class BaseHandler<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

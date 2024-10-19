@@ -1,7 +1,7 @@
 ﻿namespace PCElibrary.Application.Features.BookFeatures.GetAllBooks
 {
     using AutoMapper;
-    using PCElibrary.Application.Interfaces;
+    using PCElibrary.Application.Interfaces.Data;
 
     public sealed class GetAllBooksHandler : BaseHandler<GetAllBooksRequest, IList<GetAllBooksResponse>>
     {

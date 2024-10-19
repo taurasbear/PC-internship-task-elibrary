@@ -1,4 +1,4 @@
-﻿namespace PCElibrary.Server.Repositories.Interfaces
+﻿namespace PCElibrary.Application.Interfaces.Data.Repositories
 {
     using PCElibrary.Domain.Entities;
     using PCElibrary.Domain.Enums;

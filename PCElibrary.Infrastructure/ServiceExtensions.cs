@@ -2,7 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
-    using PCElibrary.Application.Interfaces;
+    using PCElibrary.Application.Interfaces.Data;
     using PCElibrary.Infrastructure.Data;
     using PCElibrary.Infrastructure.Data.DbContext;
 

@@ -1,7 +1,7 @@
 ﻿namespace PCElibrary.Infrastructure.Data.Repositories
 {
     using Microsoft.EntityFrameworkCore;
-    using PCElibrary.Application.Interfaces;
+    using PCElibrary.Application.Interfaces.Data.Repositories;
     using PCElibrary.Domain.Entities;
     using PCElibrary.Infrastructure.Data.DbContext;
 

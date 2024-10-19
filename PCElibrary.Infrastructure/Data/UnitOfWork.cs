@@ -1,7 +1,7 @@
-﻿using PCElibrary.Application.Interfaces;
+﻿using PCElibrary.Application.Interfaces.Data;
+using PCElibrary.Application.Interfaces.Data.Repositories;
 using PCElibrary.Infrastructure.Data.DbContext;
 using PCElibrary.Infrastructure.Data.Repositories;
-using PCElibrary.Server.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

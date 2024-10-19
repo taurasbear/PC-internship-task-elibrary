@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BookItem from './BookItem';
 import ReservationDialog from './ReservationDialog';
-import { fetchData } from '../utils/fetchData';
+import { fetchData, postData} from '../utils/fetchData';
 
 const BookList = ({ books }) => {
 
@@ -36,8 +36,8 @@ const BookList = ({ books }) => {
         }));
     };
 
-    const handleSubmit = () => {
-        // post request to backend
+    const handleSubmit = async () => {
+        await postData('api/bookreservations', reservationDetails);
         console.log('Reservation Details:', reservationDetails);
         handleClose();
         setReservationDetails(defaultReservationDetails);

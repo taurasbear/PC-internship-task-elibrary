@@ -7,3 +7,18 @@ export const fetchData = async (url, callback) => {
         console.error('Error fetching data:', error);
     }
 };
+
+export const postData = async (url, payload) => {
+    try {
+        await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+    }
+    catch (error) {
+        console.error('Error posting data:', error);
+    }
+};

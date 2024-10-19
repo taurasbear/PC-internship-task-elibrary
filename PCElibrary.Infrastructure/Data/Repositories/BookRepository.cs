@@ -1,10 +1,10 @@
 ﻿namespace PCElibrary.Infrastructure.Data.Repositories
 {
     using Microsoft.EntityFrameworkCore;
+    using PCElibrary.Application.Interfaces.Data.Repositories;
     using PCElibrary.Domain.Entities;
     using PCElibrary.Domain.Enums;
     using PCElibrary.Infrastructure.Data.DbContext;
-    using PCElibrary.Server.Repositories.Interfaces;
 
     public class BookRepository : BaseRepository, IBookRepository
     {

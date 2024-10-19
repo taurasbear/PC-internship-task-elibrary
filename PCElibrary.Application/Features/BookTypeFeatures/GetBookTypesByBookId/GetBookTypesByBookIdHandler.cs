@@ -1,7 +1,7 @@
 ﻿namespace PCElibrary.Application.Features.BookTypeFeatures.GetBookTypesByBookId
 {
     using AutoMapper;
-    using PCElibrary.Application.Interfaces;
+    using PCElibrary.Application.Interfaces.Data;
 
     public class GetBookTypesByBookIdHandler : BaseHandler<GetBookTypesByBookIdRequest, IList<GetBookTypesByBookIdResponse>>
     {
