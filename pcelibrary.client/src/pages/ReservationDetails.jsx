@@ -2,6 +2,7 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { fetchData } from '../utils/fetchData';
+import BookReservation from '../components/BookReservation/BookReservation';
 
 const ReservationDetails = () => {
 
@@ -28,13 +29,7 @@ const ReservationDetails = () => {
             <h1>Reservation Details</h1>
             <p>Reservation ID: {reservationId}</p>
             {reservationDetails.bookReservations?.map((bookReservation, index) => (
-                <div key={index}>
-                    <p>Book Type: {bookReservation.bookType ?? "NOT FOUND"}</p>
-                    <p>Quick Pick Up: {bookReservation.quickPickUp ? 'Yes' : 'No'}</p>
-                    <p>Days: {bookReservation.days ?? "NOT FOUND"}</p>
-                    <p>Price: {bookReservation.price ?? "NOT FOUND"}</p>
-                    <p>ImagePath: {bookReservation.imagePath ?? "NOT FOUND"}</p>
-                </div>
+                <BookReservation key={index} bookReservation={bookReservation} />
             ))}
             <div>
                 <p>Total Price: {reservationDetails.totalPrice}</p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/BookItem.css';
+import './BookItem.css';
 
 const BookItem = ({ book, onBookClick }) => {
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import BookItem from './BookItem';
-import ReservationDialog from './ReservationDialog';
-import { fetchData, postData } from '../utils/fetchData';
+import BookItem from '../BookItem/BookItem';
+import ReservationDialog from '../ReservationDialog/ReservationDialog';
+import { fetchData, postData } from '../../utils/fetchData';
 
 const BookList = ({ books }) => {
 

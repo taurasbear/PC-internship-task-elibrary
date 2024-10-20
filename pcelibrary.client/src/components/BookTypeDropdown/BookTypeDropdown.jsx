@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
-import { fetchData } from '../utils/fetchData';
+import { fetchData } from '../../utils/fetchData';
 
 const BookTypeDropdown = ({ onBookTypeChange }) => {
     const [bookTypes, setBookTypes] = useState([]);

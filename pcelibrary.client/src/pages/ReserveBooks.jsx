@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import BookTypeDropdown from '../components/BookTypeDropdown';
+import BookTypeDropdown from '../components/BookTypeDropdown/BookTypeDropdown';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import BookList from '../components/BookList';
+import BookList from '../components/BookList/BookList';
 import { fetchData } from '../utils/fetchData';
 import { useNavigate } from 'react-router-dom';
 

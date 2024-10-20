@@ -1,0 +1,20 @@
+.book-reservation {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.book-reservation img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.book-reservation h3 {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+}
+
+.book-reservation p {
+    color: #666;
+}
