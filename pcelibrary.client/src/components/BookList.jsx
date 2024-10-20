@@ -41,6 +41,11 @@ const BookList = ({ books }) => {
 
     const handleSubmit = async () => {
         try {
+            if(!validateReservationDetails()){
+                return;
+            }
+            console.log('Sending reservation Details:', reservationDetails);
+            console.log('with reservationId:', reservationId);
             const data = await postData('api/bookreservations', { ...reservationDetails, reservationId });
             console.log('Received data:', data);
             console.log('data.ReservationId:', data.reservationId);
@@ -56,6 +61,18 @@ const BookList = ({ books }) => {
             }
         }
 
+    }
+
+    const validateReservationDetails = () => {
+        if (!reservationDetails.bookTypeId) {
+            setErrorMessage('Please select a book type.');
+            return false;
+        }
+        if (!reservationDetails.days || reservationDetails.days <= 0) {
+            setErrorMessage('Please enter correct number of days.');
+            return false;
+        }
+        return true;
     }
 
     // useEffect(() =>{

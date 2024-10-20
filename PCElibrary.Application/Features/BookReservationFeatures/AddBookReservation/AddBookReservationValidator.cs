@@ -9,7 +9,6 @@
         {
             RuleFor(bookReservation => bookReservation.reservationId).GreaterThanOrEqualTo(ValidationConstants.MinId);
             RuleFor(bookReservation => bookReservation.bookTypeId).NotEmpty().GreaterThanOrEqualTo(ValidationConstants.MinId);
-            RuleFor(bookReservation => bookReservation.quickPickUp).NotEmpty();
             RuleFor(bookReservation => bookReservation.days).NotEmpty().InclusiveBetween(ValidationConstants.MinDays, ValidationConstants.MaxDays);
         }
     }
