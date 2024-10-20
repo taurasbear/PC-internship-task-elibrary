@@ -1,7 +1,7 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import BookItem from './BookItem';
 import ReservationDialog from './ReservationDialog';
-import { fetchData, postData} from '../utils/fetchData';
+import { fetchData, postData } from '../utils/fetchData';
 
 const BookList = ({ books }) => {
 
@@ -16,6 +16,7 @@ const BookList = ({ books }) => {
     const [bookTypes, setBookTypes] = useState([]);
     const [openDialog, setOpenDialog] = useState(false);
     const [reservationDetails, setReservationDetails] = useState(defaultReservationDetails);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleBookClick = async (book) => {
         setSelectBook(book);
@@ -27,6 +28,7 @@ const BookList = ({ books }) => {
         setOpenDialog(false)
         setSelectBook(null);
         setReservationDetails(defaultReservationDetails);
+        setErrorMessage(''); 
     };
 
     const handleChange = (e) => {
@@ -38,12 +40,22 @@ const BookList = ({ books }) => {
     };
 
     const handleSubmit = async () => {
-        const data = await postData('api/bookreservations', {...reservationDetails, reservationId});
-        console.log('Received data:', data);
-        console.log('data.ReservationId:', data.reservationId);
-        setReservationId(data.reservationId);
-        sessionStorage.setItem('reservationId', data.reservationId);
-        handleClose();
+        try {
+            const data = await postData('api/bookreservations', { ...reservationDetails, reservationId });
+            console.log('Received data:', data);
+            console.log('data.ReservationId:', data.reservationId);
+            setReservationId(data.reservationId);
+            sessionStorage.setItem('reservationId', data.reservationId);
+            handleClose();
+        }
+        catch (error) {
+            if (error.message) {
+                setErrorMessage(error.message);
+            } else {
+                console.error('An unexpected error occurred:', error);
+            }
+        }
+
     }
 
     // useEffect(() =>{
@@ -54,7 +66,7 @@ const BookList = ({ books }) => {
     // }, [reservationDetails.reservationId]);
 
     return (
-        <div>
+        <div>         
             <ul>
                 {books.map(book => (<BookItem key={book.id} book={book} onBookClick={handleBookClick} />))}
             </ul>
@@ -65,6 +77,7 @@ const BookList = ({ books }) => {
                 selectedBook={selectedBook}
                 bookTypes={bookTypes}
                 reservationDetails={reservationDetails}
+                errorMessage={errorMessage}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
             />

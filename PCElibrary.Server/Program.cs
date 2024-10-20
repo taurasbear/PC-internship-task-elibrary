@@ -1,12 +1,16 @@
 using PCElibrary.Application;
 using PCElibrary.Infrastructure;
 using PCElibrary.Infrastructure.Data.DbContext;
+using PCElibrary.Server.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigureInfrastructure();
 builder.Services.ConfigureApplication();
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<CustomExceptionFilter>();
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

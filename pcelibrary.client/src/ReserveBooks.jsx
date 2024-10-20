@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import BookItem from './components/BookItem'
 import BookTypeDropdown from './components/BookTypeDropdown';
 import TextField from '@mui/material/TextField';
 import BookList from './components/BookList';

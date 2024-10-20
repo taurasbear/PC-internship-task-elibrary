@@ -18,10 +18,15 @@ export const postData = async (url, payload) => {
             body: JSON.stringify(payload)
         })
         const data = await response.json();
+
+        if(!response.ok){
+            throw new Error(data.message || 'An unexpected error occurred');
+        }
+        
         return data;
     }
     catch (error) {
         console.error('Error posting data:', error);
-        return null;
+        throw error;
     }
 };

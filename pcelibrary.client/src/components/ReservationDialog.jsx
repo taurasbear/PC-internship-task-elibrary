@@ -1,10 +1,11 @@
 import React from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
-const ReservationDialog = ({ open, onClose, selectedBook, bookTypes, reservationDetails, handleChange, handleSubmit }) => {
+const ReservationDialog = ({ open, onClose, selectedBook, bookTypes, reservationDetails, errorMessage, handleChange, handleSubmit }) => {
     return (
         <Dialog open={open} onClose={onClose}>
             <DialogTitle>Reserve {selectedBook?.name}</DialogTitle>
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
             <DialogContent>
                 <FormControl fullWidth margin="normal">
                     <InputLabel>Type</InputLabel>
