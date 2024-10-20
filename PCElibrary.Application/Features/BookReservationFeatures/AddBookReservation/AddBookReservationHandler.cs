@@ -63,11 +63,7 @@
             reservation.UpdateTotalPrice();
 
             bookReservation.Reservation = reservation;
-
-            //TODO: Fix this
-            var reservationId = await this.unitOfWork.BookReservationRepository.AddBookReservationAsync(bookReservation, cancellationToken);
-            Console.WriteLine($"---> reservationId: {reservationId}");
-            Console.WriteLine($"---> bookReservation.ReservationId: {bookReservation.ReservationId}");
+            await this.unitOfWork.BookReservationRepository.AddBookReservationAsync(bookReservation, cancellationToken);
         }
     }
 }
