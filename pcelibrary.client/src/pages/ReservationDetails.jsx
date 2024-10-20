@@ -18,7 +18,6 @@ const ReservationDetails = () => {
 
     const fetchReservationDetails = async () => {
         await fetchData(`api/reservations/${reservationId}`, setReservationDetails);
-        console.log('---> Reservation Details:', reservationDetails);
     }
 
     useEffect(() => {
