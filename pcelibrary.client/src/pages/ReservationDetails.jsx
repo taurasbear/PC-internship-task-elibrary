@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { fetchData } from '../utils/fetchData';
 import BookReservation from '../components/BookReservation/BookReservation';
+import '../styles/ReservationDetails.css';
 
 const ReservationDetails = () => {
 
     const [reservationDetails, setReservationDetails] = useState({});
-    const [reservationId, setReservationId] = useState(sessionStorage.getItem('reservationId'));
+    const reservationId = sessionStorage.getItem('reservationId');
 
     const navigate = useNavigate();
 
@@ -21,16 +22,19 @@ const ReservationDetails = () => {
     }
 
     useEffect(() => {
-        fetchReservationDetails();
+        if (reservationId) {
+            fetchReservationDetails();
+        }
     }, [])
 
     return (
-        <div>
-            <h1>Reservation Details</h1>
-            <p>Reservation ID: {reservationId}</p>
-            {reservationDetails.bookReservations?.map((bookReservation, index) => (
-                <BookReservation key={index} bookReservation={bookReservation} />
-            ))}
+        <div className='reservation-details'>
+            <h1>Book Reservations</h1>
+            <div className='book-reservations'>
+                {reservationDetails.bookReservations?.map((bookReservation, index) => (
+                    <BookReservation key={index} bookReservation={bookReservation} />
+                ))}
+            </div>
             <div>
                 <p>Total Price: {reservationDetails.totalPrice}</p>
             </div>

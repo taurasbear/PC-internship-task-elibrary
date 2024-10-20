@@ -1,6 +1,8 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { fetchData } from '../../utils/fetchData';
+import PropTypes from 'prop-types';
 
 const BookTypeDropdown = ({ onBookTypeChange }) => {
     const [bookTypes, setBookTypes] = useState([]);
@@ -41,6 +43,10 @@ const BookTypeDropdown = ({ onBookTypeChange }) => {
             </Select>
         </FormControl>
     );
+}
+
+BookTypeDropdown.propTypes = {
+    onBookTypeChange: PropTypes.func.isRequired
 }
 
 export default BookTypeDropdown;

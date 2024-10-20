@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import BookList from '../components/BookList/BookList';
 import { fetchData } from '../utils/fetchData';
 import { useNavigate } from 'react-router-dom';
+import '../styles/ReserveBooks.css';
 
 const ReserveBooks = () => {
 
@@ -27,10 +28,6 @@ const ReserveBooks = () => {
         await fetchData(url, setBooks)
     }
 
-    useEffect(() => {
-        populateBooks()
-    }, [filters])
-
     const handleFilterChange = (filterName, filterValue) => {
         setFilters(prevFilters => ({
             ...prevFilters,
@@ -38,32 +35,40 @@ const ReserveBooks = () => {
         }));
     }
 
+    useEffect(() => {
+        populateBooks()
+    }, [filters])
+
     return (
-        <div className='books'>
+        <div className='reserve-books'>
             <div>
-                <h1>List of books:</h1>
+                <h1>E-Library</h1>
             </div>
-            <BookList books={books} />
-            <div>
-                <h2>Select Book Filters</h2>
-                <TextField
-                    label="Title"
-                    value={filters.title}
-                    onChange={(e) => handleFilterChange("title", e.target.value)}
-                    fullWidth
-                />
-                <TextField
-                    label="Year"
-                    type="number"
-                    value={filters.year}
-                    onChange={(e) => handleFilterChange("year", e.target.value)}
-                    fullWidth
-                />
-                <BookTypeDropdown onBookTypeChange={(e) => handleFilterChange("type", e.target.value)} />
+            <div className='content-container'>
+                <div className='book-filters'>
+                    <h2 className='filters-title'>Select Book Filters</h2>
+                    <div className='filters-inputs'>
+                        <TextField
+                            label="Title"
+                            value={filters.title}
+                            onChange={(e) => handleFilterChange("title", e.target.value)}
+                            fullWidth
+                        />
+                        <TextField
+                            label="Year"
+                            type="number"
+                            value={filters.year}
+                            onChange={(e) => handleFilterChange("year", e.target.value)}
+                            fullWidth
+                        />
+                        <BookTypeDropdown onBookTypeChange={(e) => handleFilterChange("type", e.target.value)} />
+                    </div>
+                </div>
+                <BookList books={books} />
             </div>
-            <div className = "view-reservation">
+            <div className="view-reservation">
                 <Button variant="contained" onClick={handleViewReservation}>
-                    View Reservation
+                    View Book Reservations
                 </Button>
             </div>
         </div>

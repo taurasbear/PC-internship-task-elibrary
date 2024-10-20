@@ -1,5 +1,6 @@
 import React from "react";
 import "./BookReservation.css";
+import PropTypes from 'prop-types';
 
 const BookReservation = ({ bookReservation }) => {
     return (
@@ -12,6 +13,17 @@ const BookReservation = ({ bookReservation }) => {
             <p>Price: {bookReservation.price}</p>
         </div>
     );
+}
+
+BookReservation.propTypes = {
+    bookReservation: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        imagePath: PropTypes.string.isRequired,
+        bookType: PropTypes.string.isRequired,
+        quickPickUp: PropTypes.bool.isRequired,
+        days: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired
+    }).isRequired
 }
 
 export default BookReservation;

@@ -1,0 +1,17 @@
+.book-filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filters-title {
+    margin-bottom: 20px;
+}
+
+.filters-inputs {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 50px;
+}

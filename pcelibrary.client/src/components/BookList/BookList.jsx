@@ -1,34 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import BookItem from '../BookItem/BookItem';
 import ReservationDialog from '../ReservationDialog/ReservationDialog';
 import { fetchData, postData } from '../../utils/fetchData';
+import PropTypes from 'prop-types';
+import './BookList.css';
 
 const BookList = ({ books }) => {
-
     const defaultReservationDetails = {
         bookTypeId: '',
         quickPickUp: false,
         days: '',
     };
-    const [reservationId, setReservationId] = useState(sessionStorage.getItem('reservationId') || null);
 
-    const [selectedBook, setSelectBook] = useState(null);
+    const [reservationId, setReservationId] = useState(sessionStorage.getItem('reservationId') || null);
+    const [selectedBook, setSelectedBook] = useState(null);
     const [bookTypes, setBookTypes] = useState([]);
     const [openDialog, setOpenDialog] = useState(false);
     const [reservationDetails, setReservationDetails] = useState(defaultReservationDetails);
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleBookClick = async (book) => {
-        setSelectBook(book);
+        setSelectedBook(book);
         await fetchData(`api/booktypes?bookId=${book.id}`, setBookTypes);
         setOpenDialog(true);
     };
 
     const handleClose = () => {
         setOpenDialog(false)
-        setSelectBook(null);
+        setSelectedBook(null);
         setReservationDetails(defaultReservationDetails);
-        setErrorMessage(''); 
+        setErrorMessage('');
     };
 
     const handleChange = (e) => {
@@ -41,7 +42,7 @@ const BookList = ({ books }) => {
 
     const handleSubmit = async () => {
         try {
-            if(!validateReservationDetails()){
+            if (!validateReservationDetails()) {
                 return;
             }
             console.log('Sending reservation Details:', reservationDetails);
@@ -75,19 +76,11 @@ const BookList = ({ books }) => {
         return true;
     }
 
-    // useEffect(() =>{
-    //     console.log('In Use Effect, Reservation Details (after reservationId set):', reservationDetails);
-    //     if(reservationDetails.reservationId){
-    //         localStorage.setItem('reservationId', reservationDetails.reservationId);
-    //     }
-    // }, [reservationDetails.reservationId]);
-
     return (
-        <div>         
-            <ul>
+        <div>
+            <div className='book-list'>
                 {books.map(book => (<BookItem key={book.id} book={book} onBookClick={handleBookClick} />))}
-            </ul>
-
+            </div>
             <ReservationDialog
                 open={openDialog}
                 onClose={handleClose}
@@ -101,5 +94,9 @@ const BookList = ({ books }) => {
         </div>
     );
 };
+
+BookList.propTypes = {
+    books: PropTypes.array.isRequired
+}
 
 export default BookList;
