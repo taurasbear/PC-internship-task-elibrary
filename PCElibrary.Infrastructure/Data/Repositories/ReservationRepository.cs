@@ -1,5 +1,6 @@
 ﻿namespace PCElibrary.Infrastructure.Data.Repositories
 {
+    using Microsoft.EntityFrameworkCore;
     using PCElibrary.Application.Interfaces.Data.Repositories;
     using PCElibrary.Domain.Entities;
     using PCElibrary.Infrastructure.Data.DbContext;
@@ -11,9 +12,11 @@
         {
         }
 
-        public async Task<Reservation> GetReservationByIdAsync(long reservationId, CancellationToken cancellationToken)
+        public async Task<Reservation> GetReservationDetailsByIdAsync(long reservationId, CancellationToken cancellationToken)
         {
-            return await this.libraryContext.Reservations.FindAsync(reservationId, cancellationToken);
+            return await this.libraryContext.Reservations
+                .Include(reservation => reservation.BookReservations)
+                .FirstOrDefaultAsync(reservation => reservationId == reservationId, cancellationToken);
         }
     }
 }

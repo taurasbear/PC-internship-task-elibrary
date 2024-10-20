@@ -5,10 +5,10 @@
     public interface IReservationRepository
     {
         /// <summary>
-        /// Retrieves a reservation by its ID.
+        /// Retrieves a reservation with its book reservations by its ID.
         /// </summary>
         /// <param name="reservationId">The ID of the reservation.</param>
-        /// <returns>The reservation with the specified ID.</returns>
-        Task<Reservation> GetReservationByIdAsync(long reservationId, CancellationToken cancellationToken);
+        /// <returns>The reservation with its book reservations with the specified ID.</returns>
+        Task<Reservation> GetReservationDetailsByIdAsync(long reservationId, CancellationToken cancellationToken);
     }
 }

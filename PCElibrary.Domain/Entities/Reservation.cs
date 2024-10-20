@@ -12,7 +12,7 @@
 
         public void UpdateTotalPrice()
         {
-            TotalPrice = BookReservations.Sum(bookReservation => bookReservation.Price);
+            TotalPrice = Math.Round(BookReservations.Sum(bookReservation => bookReservation.Price), 2);
         }
     }
 }
