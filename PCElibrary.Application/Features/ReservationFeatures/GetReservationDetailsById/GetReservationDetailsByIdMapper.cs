@@ -12,7 +12,8 @@
 
             this.CreateMap<BookReservation, GetReservationDetailsByIdResponse.BookReservationResponse>()
                 .ForMember(dest => dest.BookType, opt => opt.MapFrom(src => src.BookType.Format.ToString()))
-                .ForMember(dest => dest.ImagePath, opt => opt.MapFrom(src => src.BookType.Book.ImagePath));
+                .ForMember(dest => dest.ImagePath, opt => opt.MapFrom(src => src.BookType.Book.ImagePath))
+                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.BookType.Book.Title));
         }
     }
 }
