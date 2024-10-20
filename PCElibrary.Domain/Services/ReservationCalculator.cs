@@ -35,11 +35,11 @@
 
             if (bookReservation.Days > DiscountDayCount1)
             {
-                price = price * (100 - DiscountPercentage1);
+                price = price * (100 - DiscountPercentage1)/100;
             }
             else if (bookReservation.Days > DiscountDayCount2)
             {
-                price = price * (100 - DiscountPercentage2);
+                price = price * (100 - DiscountPercentage2)/100;
             }
 
             price += ServiceFee;
@@ -49,7 +49,7 @@
                 price += QuickPickUpFee;
             }
 
-            return price;
+            return Math.Round(price, 2);
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿namespace PCElibrary.Application.Features.ReservationFeatures.GetReservationDetailsById
 {
+    using PCElibrary.Domain.Enums;
+
     public sealed record GetReservationDetailsByIdResponse
     {
         public long ReservationId { get; set; }
@@ -10,7 +12,9 @@
 
         public sealed record BookReservationResponse
         {
-            public long BookTypeId { get; set; }
+            public string BookType { get; set; } = string.Empty;
+
+            public string ImagePath { get; set; } = string.Empty;
 
             public bool QuickPickUp { get; set; }
 

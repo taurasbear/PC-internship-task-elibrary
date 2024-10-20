@@ -16,6 +16,8 @@
         {
             return await this.libraryContext.Reservations
                 .Include(reservation => reservation.BookReservations)
+                .ThenInclude(bookReservation => bookReservation.BookType)
+                .ThenInclude(bookType => bookType.Book)
                 .FirstOrDefaultAsync(reservation => reservationId == reservationId, cancellationToken);
         }
     }

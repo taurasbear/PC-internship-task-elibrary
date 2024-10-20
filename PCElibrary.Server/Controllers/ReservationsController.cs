@@ -15,8 +15,8 @@
             this.mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<GetReservationDetailsByIdResponse>> GetReservationDetailsById([FromQuery] long reservationId, CancellationToken cancellationToken)
+        [HttpGet("{reservationId:long}")]
+        public async Task<ActionResult<GetReservationDetailsByIdResponse>> GetReservationDetailsById(long reservationId, CancellationToken cancellationToken)
         {
             var response = await this.mediator.Send(new GetReservationDetailsByIdRequest(reservationId), cancellationToken);
             return this.Ok(response);
