@@ -18,7 +18,7 @@
                 .Include(reservation => reservation.BookReservations)
                 .ThenInclude(bookReservation => bookReservation.BookType)
                 .ThenInclude(bookType => bookType.Book)
-                .FirstOrDefaultAsync(reservation => reservationId == reservationId, cancellationToken);
+                .FirstOrDefaultAsync(reservation => reservation.Id == reservationId, cancellationToken);
         }
     }
 }
