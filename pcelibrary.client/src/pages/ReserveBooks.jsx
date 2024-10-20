@@ -1,10 +1,18 @@
-import { useEffect, useState } from 'react';
-import BookTypeDropdown from './components/BookTypeDropdown';
+import React, { useEffect, useState } from 'react';
+import BookTypeDropdown from '../components/BookTypeDropdown';
+import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import BookList from './components/BookList';
-import { fetchData } from './utils/fetchData';
+import BookList from '../components/BookList';
+import { fetchData } from '../utils/fetchData';
+import { useNavigate } from 'react-router-dom';
 
 const ReserveBooks = () => {
+
+    const navigate = useNavigate();
+
+    const handleViewReservation = () => {
+        navigate('/reservationDetails');
+    }
 
     const [books, setBooks] = useState([]);
     const [filters, setFilters] = useState({
@@ -52,6 +60,11 @@ const ReserveBooks = () => {
                     fullWidth
                 />
                 <BookTypeDropdown onBookTypeChange={(e) => handleFilterChange("type", e.target.value)} />
+            </div>
+            <div className = "view-reservation">
+                <Button variant="contained" onClick={handleViewReservation}>
+                    View Reservation
+                </Button>
             </div>
         </div>
     );

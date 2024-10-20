@@ -46,7 +46,7 @@
 
         private async Task UpdateExistingReservationAsync(long reservationId, BookReservation bookReservation, CancellationToken cancellationToken)
         {
-            var reservation = await this.unitOfWork.ReservationRepository.GetReservationByIdAsync(reservationId, cancellationToken);
+            var reservation = await this.unitOfWork.ReservationRepository.GetReservationDetailsByIdAsync(reservationId, cancellationToken);
             if (reservation == null)
             {
                 throw new BadRequestException("Chosen reservation doesn't exist.");
